@@ -5,7 +5,6 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,9 +23,9 @@ public class SignupActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     EditText emailBox, passwordBox, nameBox;
-    Button loginBtn, signupBtn;
+    Button loginBtn, signupBtn, alreadyBtn;
 
-    FirebaseFirestore database;
+    FirebaseFirestore database; 
 
 
 
@@ -43,8 +42,9 @@ public class SignupActivity extends AppCompatActivity {
         passwordBox = findViewById(R.id.passwordBox);
 
 
-        loginBtn = findViewById(R.id.loginButton);
+        loginBtn = findViewById(R.id.alreadyButton);
         signupBtn = findViewById(R.id.createButton);
+        alreadyBtn = findViewById(R.id.alreadyButton);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            database.collection("Users").document().set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            database.collection("Users2").document().set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     startActivity(new Intent(SignupActivity.this, LoginActivity.class));
@@ -77,6 +77,13 @@ public class SignupActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+
+        alreadyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignupActivity.this, TempActivity.class));
             }
         });
     }

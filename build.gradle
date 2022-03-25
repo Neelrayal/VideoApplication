@@ -3,9 +3,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-        }
     }
 
     dependencies {
@@ -16,17 +13,6 @@ buildscript {
     }
 }
 
-/*
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven {
-            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-        }
-    }
-}
-*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir

@@ -41,6 +41,7 @@
                 android:textColor="#1F1D22"
                 android:textSize="24sp" />
 
+
             <EditText
                 android:id="@+id/emailBox"
                 android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                 android:padding="10dp" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/alreadyButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
